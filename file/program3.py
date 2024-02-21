@@ -1,0 +1,5 @@
+text = input('enter a text')
+file = open('welcome.txt','a')
+file.write(text+'\n')
+file = open ('welcome.txt','r')
+print (file.read())
