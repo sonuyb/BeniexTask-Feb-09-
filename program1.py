@@ -1,24 +1,36 @@
+class Emp:
+    def __init__(self, name):
+        self.name = name
+        self.salary = 0  
+    def update_salary(self, hours):
+        self.salary = hours * 200
+    def __str__(self):
+        return f"Employee: {self.name}, Salary: ${self.salary}"
+ 
 
-def perform_operations(input_number):
-    add = input_number + 2
-    sub = input_number - 2
-    mul = input_number * 4
-    div = input_number / 3
-    mod = input_number % 2
-    expo = input_number ** 2
-    floo = input_number // 2
-
-    Individual_results = {
-         'addition': add,
-         'substraction': sub,
-         'multiplication': mul,
-         'divison': div,
-         'modulus': mod,
-         'exponentiation': expo,
-         'floor division': floo,
-
-   }
-    return Individual_results
-input_value = 3
-Individual_results = perform_operations(input_value)
-print("Individual Results:", Individual_results)
+class PartTimeEmployee(Emp):
+    def update_salary(self, hours):
+        self.salary = hours * 150
+ 
+  
+emp1 = Emp(name="Aswin")
+emp1.update_salary(hours=6)
+emp2 = Emp(name="Jerry")
+emp2.update_salary(hours=8)
+ 
+pemp1 = PartTimeEmployee(name="Joseph")
+pemp1.update_salary(hours=8)
+pemp2 = PartTimeEmployee(name="Sujith")
+pemp2.update_salary(hours=4)
+pemp3 = PartTimeEmployee(name="Sachin")
+pemp3.update_salary(hours=5)
+ 
+print(emp1)
+print(emp2)
+print(pemp1)
+print(pemp2)
+print(pemp3)
+ 
+employees = [emp1,emp2 ,pemp1,pemp2,pemp3]
+total_expense = sum(employee.salary for employee in employees)
+print(f"\nTotal Salary Expense: ${total_expense}")
