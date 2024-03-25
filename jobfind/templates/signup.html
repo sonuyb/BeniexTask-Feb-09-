@@ -1,0 +1,7 @@
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <h4>{{field.label}} {{field}}</h4>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+</form>

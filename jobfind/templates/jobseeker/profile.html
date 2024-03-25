@@ -1,0 +1,5 @@
+profile
+<h4>Full Name {{data.first_name}} {{data.last_name}}</h4>
+<h4>Highest Qualification {{data.highest_qualification}}</h4>
+<h4>Current Location {{data.current_location}}</h4>
+<a href= "{% url 'editprofile' user.id %}">Edit</a>

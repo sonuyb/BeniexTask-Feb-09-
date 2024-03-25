@@ -1,0 +1,53 @@
+<!-- <h1>Jobs </h1>
+<table border ='1'>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Highest Qualification</th>
+            <th>Location</th>
+            <th>Resume</th>
+            <th>Cover Letter</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{user.user.first_name}}</td>
+            <td>{{applicants.user.last_name}}</td>
+            <td>{{applicants.user.highest_qualification}}</td>
+            <td>{{applicants.user.current_location}}</td>
+            <td>{{applicants.user.resume}}</td>
+            <td>{{applicants.user.cover_letter}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table> -->
+
+
+    <h1>Applicants for Job: {{ job.job_title }}</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Highest Qualification</th>
+                <th>Location</th>
+                <th>Resume</th>
+                <th>Cover Letter</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant in applicants %}
+            <tr>
+                <td>{{ applicant.job_seeker.first_name }} {{applicant.job_seeker.last_name}}</td>
+                <td>{{applicant.job_seeker.highest_qualification}}</td>
+                <td>{{applicant.job_seeker.current_location}}</td>
+                <!-- <td>{{applicant.job_seeker.resume}}</td>
+                <td>{{applicant.job_seeker.cover_letter}}</td> -->
+                <td><a href="{{ 'applicant.job_seeker.resume.file.url' }}">view</a></td>
+                <td><a href="{{ 'applicant.job_seeker.cover_letter.file.url' }}">view</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    

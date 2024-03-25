@@ -1,0 +1,27 @@
+<h1>Jobs </h1>
+<table border ='1'>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Salary</th>
+            <th>city</th>
+            <th>state</th>
+            <th>job type</th>
+            <th>job requirement</th>
+            <th>is available</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{job.job.job_title}}</td>
+            <td>{{job.job.salary}}</td>
+            <td>{{job.job.city}}</td>
+            <td>{{job.job.state}}</td>
+            <td>{{job.job.job_type}}</td>
+            <td>{{job.job.job_requirement}}</td>
+            <td>{{job.job.is_available}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>

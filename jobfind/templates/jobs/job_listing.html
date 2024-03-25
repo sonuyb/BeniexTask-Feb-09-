@@ -1,0 +1,46 @@
+<h1>Jobs </h1>
+{% if user.user_type == 'JOB_SEEKER' %}
+<form action="{% url 'applicant_job_listing' %}" method="GET">
+    <input type="text" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+{% endif %}
+<table border ='1'>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Salary</th>
+            <th>city</th>
+            <th>state</th>
+            <th>job type</th>
+            <th>job requirement</th>
+            {% if user.user_type == 'EMPLOYER' %}
+            <th>is available</th>
+            <th>Edit/Delete</th>
+            <th>Applicants</th>
+            {% else %}
+            <th>Status</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{job.job_title}}</td>
+            <td>{{job.salary}}</td>
+            <td>{{job.city}}</td>
+            <td>{{job.state}}</td>
+            <td>{{job.job_type}}</td>
+            <td>{{job.job_requirement}}</td>
+            {% if user.user_type == 'EMPLOYER' %}
+            <td>{{job.is_available}}</td>
+            <td><a href="{% url 'edit' job.id %}">edit</a>/<a href="{% url 'delete' job.id %}">delete</a></td>
+            <td><a href="{% url 'view_applicants' job.id %}">view</a></td>
+            {% else %}
+            <!-- <td>{{job.is_available}}</td> -->
+            <th><a href="{% url 'job-apply' job.id %}">Apply</a></th>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
